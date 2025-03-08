@@ -1,0 +1,11 @@
+namespaces:
+
+ partition resources in a cluster into "distinct groups."
+
+ Default k8s namespaces:
+
+ default
+kube-system
+kube-public
+
+
