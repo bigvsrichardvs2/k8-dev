@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: certbot1
 spec:
+  imagePullSecrets:
+    - name: dockercreds
   replicas: 2
   selector:
     matchLabels:
@@ -15,10 +17,12 @@ spec:
       containers:
       - name: nginx-certbot-container
         image: nginx:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
 
       - name: certbot-container
         image: certbot:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8081
